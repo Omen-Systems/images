@@ -16,5 +16,5 @@ curl -o server.jar $DOWNLOAD_URL
 jar xf server.jar version.json
 JAVA_VERSION=$(jq '.java_version' version.json)
 rm version.json
-apk delete openjdk17
+apk del openjdk17
 apk add openjdk$JAVA_VERSION
