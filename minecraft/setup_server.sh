@@ -16,5 +16,9 @@ curl -o server.jar $DOWNLOAD_URL
 jar xf server.jar version.json
 JAVA_VERSION=$(jq '.java_version' version.json)
 rm version.json
-apk del openjdk17
-apk add openjdk$JAVA_VERSION
+if [ "$JAVA_VERSION" == "17" ]; then
+  # end here, java 17 is already installed
+  exit 0
+else 
+  apk add openjdk$JAVA_VERSION
+fi
