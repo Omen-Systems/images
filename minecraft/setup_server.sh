@@ -20,5 +20,6 @@ if [ "$JAVA_VERSION" == "17" ]; then
   # end here, java 17 is already installed
   exit 0
 else 
+  apk delete openjdk17
   apk add openjdk$JAVA_VERSION
 fi
